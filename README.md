@@ -1,4 +1,4 @@
-# GoogleSheet2GoogleDoc
+# GoogleSheet2GoogleDocs
 
 Google script to create multiple files (Google Docs) by using Google Spreadsheet as database.
 Useful for small business automation. Can easily create to create bunch of contracts, invoices etc.
