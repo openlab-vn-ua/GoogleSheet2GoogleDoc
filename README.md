@@ -6,10 +6,46 @@ Useful for small business automation. Can easily create to create bunch of contr
 ## Goal
 
 Simple office tasks automation tool.
+
 Say, you have Google Spreadsheet formatted as table:
 First row contains column names, others rows contain data.
-With this tool you may create multiple Google Documents for each of row, using Some document as template.
 The data fields inserted into the document via {{field}} substitution.
+The note on first row first column name should contain url/id of google document that will be used as template
+
+### Example
+
+#### Source data
+
+Let assume that data is located in some spreadsheet, that have this `Code.gs` installed
+
+| CustomerName   | ContractId | ContractDate |
+|----------------|------------|--------------|
+| John Doe       | CN-1228    | 12.08.2019   |
+| Peter Norton   | CN-12/56   | 01.02.2020   |
+
+#### The template document
+
+Let have `ConfirmationLetter` Google Document as template:
+
+| Dear {{CustomerName}}, your contract {{ContractId}} is approved at {{ContractDate}} |
+|-------------------------------------------------------------------------------------|
+
+#### Template linking
+
+The url (or id) of template file `ConfirmationLetter` should be put in the `note` on first row first column name
+
+#### Results 
+
+With this tool you may create separate Google Document (or Google Spreadsheet) for each of row, using some document as template.
+To execute tool, you have just to use menu "GoogleSheet2GoogleDoc" - "Fill docs with {{template}} fields"
+
+Result file for row 1 `ConfirmationLetter_filled_1`:
+| Dear John Doe, your contract CN-1228 is approved at 12.08.2019                     |
+|------------------------------------------------------------------------------------|
+
+Result file for row 2 `ConfirmationLetter_filled_2`:
+| Dear Peter Norton, your contract CN-12/56 is approved at 01.02.2020                |
+|------------------------------------------------------------------------------------|
 
 ## How it works
 
